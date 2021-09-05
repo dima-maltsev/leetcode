@@ -9,7 +9,7 @@ namespace LeetCode
     {
         public int[] Solution(int[] nums, int target) => Map(nums, target);
 
-        public int[] Map(int[] nums, int target)
+        int[] Map(int[] nums, int target)
         {
             var map = new Dictionary<int, int>();
 
@@ -27,7 +27,7 @@ namespace LeetCode
             return Array.Empty<int>();
         }
 
-        public int[] BruteForce(int[] nums, int target)
+        int[] BruteForce(int[] nums, int target)
         {
             for (var i = 0; i < nums.Length - 1; i++)
             {
@@ -49,7 +49,7 @@ namespace LeetCode
         [InlineData(new[] { 3, 3 }, 6, new[] { 0, 1 })]
         public void Test(int[] nums, int target, int[] expected)
         {
-            var actual = new TwoSum().Solution(nums, target);
+            var actual = Solution(nums, target);
             Assert.Equal(expected, actual);
         }
     }
