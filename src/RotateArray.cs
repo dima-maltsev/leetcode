@@ -6,7 +6,7 @@ namespace LeetCode
     // https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/646/
     public class RotateArray
     {
-        public void Solution(int[] nums, int k) => Swap(nums, k);
+        public void Solution(int[] nums, int k) => Swap2(nums, k);
 
         void NewArray(int[] nums, int k)
         {
@@ -57,34 +57,46 @@ namespace LeetCode
             }
         }
 
-        void Swap(int[] nums, int k)
+        void ReverseSolution(int[] nums, int k)
         {
-            if (k >= nums.Length) k %= nums.Length;
+            k %= nums.Length;
             if (k == 0 || nums.Length == 1) return;
 
-            var index = 0;
-            var count = 0;
-            var tmp = nums[index];
-            var odd = k > 1 && nums.Length % k == 0;
+            ReverseArray(nums, 0, nums.Length - 1);
+            ReverseArray(nums, 0, k - 1);
+            ReverseArray(nums, k, nums.Length - 1);
+        }
 
-            while (count < nums.Length)
+        void ReverseArray(int[] nums, int start, int end)
+        {
+            while (start < end)
             {
-                var source = tmp;
+                (nums[start], nums[end]) = (nums[end], nums[start]);
+                start++;
+                end--;
+            }
+        }
 
-                var shift = odd && count == nums.Length / 2;
-                if (shift)
+        void Swap2(int[] nums, int k)
+        {
+            var len = nums.Length;
+            k %= len;
+            if (k == 0 || len == 1) return;
+
+            var index = 0;
+            var swapPos = k;
+
+            for (var count = 0; count < len; count++)
+            {
+                if (swapPos == index)
                 {
                     index++;
-                    source = nums[index];
+                    swapPos = (index + k) % len;
+                    continue;
                 }
 
-                index += k;
-                if (index >= nums.Length)
-                    index %= nums.Length;
-
-                tmp = nums[index];
-                nums[index] = source;
-                count++;
+                (nums[index], nums[swapPos]) = (nums[swapPos], nums[index]);
+                swapPos = (swapPos + k) % len;
             }
         }
 
@@ -92,7 +104,9 @@ namespace LeetCode
         [InlineData(new[] { 1, 2 }, 5, new[] { 2, 1 })]
         [InlineData(new[] { 1, 2, 3 }, 2, new[] { 2, 3, 1 })]
         [InlineData(new[] { 1, 2, 3, 4 }, 2, new[] { 3, 4, 1, 2 })]
+        [InlineData(new[] { 1, 2, 3, 4, 5, 6 }, 2, new[] { 5, 6, 1, 2, 3, 4 })]
         [InlineData(new[] { 1, 2, 3, 4, 5, 6 }, 3, new[] { 4, 5, 6, 1, 2, 3 })]
+        [InlineData(new[] { 1, 2, 3, 4, 5, 6 }, 4, new[] { 3, 4, 5, 6, 1, 2 })]
         [InlineData(new[] { 1, 2, 3, 4, 5, 6, 7 }, 1, new[] { 7, 1, 2, 3, 4, 5, 6 })]
         [InlineData(new[] { 1, 2, 3, 4, 5, 6, 7 }, 2, new[] { 6, 7, 1, 2, 3, 4, 5 })]
         [InlineData(new[] { 1, 2, 3, 4, 5, 6, 7 }, 3, new[] { 5, 6, 7, 1, 2, 3, 4 })]
