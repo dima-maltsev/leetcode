@@ -7,7 +7,7 @@ namespace LeetCode
     // [Easy][LinkedList] https://leetcode.com/problems/reverse-linked-list/
     public class ReverseLinkedList
     {
-        public ListNode ReverseList(ListNode head)
+        ListNode ReverseList(ListNode head)
         {
             if (head?.next == null) return head;
 
@@ -76,7 +76,7 @@ namespace LeetCode
         }
     }
 
-    public class ListNode
+    class ListNode
     {
         public int val;
         public ListNode next;
