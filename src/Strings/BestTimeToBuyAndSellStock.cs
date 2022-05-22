@@ -23,7 +23,7 @@ namespace LeetCode
         }
 
         // https://leetcode.com/problems/best-time-to-buy-and-sell-stock/discuss/39038/Kadane's-Algorithm-Since-no-one-has-mentioned-about-this-so-far-%3A)-(In-case-if-interviewer-twists-the-input)
-        int KadenesAlgorithm(int[] nums)
+        int KadanesAlgorithm(int[] nums)
         {
             if (nums.Length == 1) return nums[0];
 
@@ -46,7 +46,7 @@ namespace LeetCode
         [InlineData(new[] { 1, 2, 1, 2, 5 }, 4)]
         public void Test(int[] prices, int expected)
         {
-            var actual = KadenesAlgorithm(prices);
+            var actual = KadanesAlgorithm(prices);
             Assert.Equal(expected, actual);
         }
     }
