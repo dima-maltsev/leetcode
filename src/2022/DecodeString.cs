@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text;
 using Xunit;
 
-namespace LeetCode;
+namespace LeetCode._2022;
 
 // [Medium][String] https://leetcode.com/problems/decode-string/
 public class DecodeString

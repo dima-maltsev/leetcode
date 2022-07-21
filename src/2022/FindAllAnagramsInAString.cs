@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
-namespace LeetCode
+namespace LeetCode._2022
 {
     // [Medium][String] https://leetcode.com/problems/find-all-anagrams-in-a-string/
     public class FindAllAnagramsInASring

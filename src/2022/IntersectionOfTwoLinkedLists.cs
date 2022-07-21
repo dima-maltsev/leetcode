@@ -1,7 +1,7 @@
-using System;
+using System.Collections.Generic;
 using Xunit;
 
-namespace LeetCode
+namespace LeetCode._2022
 {
     // [Easy][LinkedList] https://leetcode.com/problems/intersection-of-two-linked-lists/
     public class IntersectionOfTwoLinkedLists

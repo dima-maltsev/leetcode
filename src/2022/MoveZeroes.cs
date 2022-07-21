@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace LeetCode
+namespace LeetCode._2022
 {
     // [Easy][Array] https://leetcode.com/problems/move-zeroes/
     public class MoveZeroes

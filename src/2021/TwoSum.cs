@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Xunit;
 
-namespace LeetCode
+namespace LeetCode._2021
 {
     // https://leetcode.com/problems/two-sum/
     public class TwoSum

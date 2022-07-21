@@ -1,6 +1,8 @@
-﻿using Xunit;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Xunit;
 
-namespace LeetCode;
+namespace LeetCode._2022;
 
 // [Easy][Array] https://leetcode.com/problems/single-number/
 public class SingleNumberSolved

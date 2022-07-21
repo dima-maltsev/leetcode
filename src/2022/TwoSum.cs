@@ -1,6 +1,8 @@
-﻿using Xunit;
+﻿using System;
+using System.Collections.Generic;
+using Xunit;
 
-namespace LeetCode;
+namespace LeetCode._2022;
 
 // [Easy][Array] https://leetcode.com/problems/two-sum/
 public class TwoSumSolved

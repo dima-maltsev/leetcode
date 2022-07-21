@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace LeetCode
+namespace LeetCode._2022
 {
     // [Easy][Dynamic] https://leetcode.com/problems/counting-bits/
     public class CountingBits

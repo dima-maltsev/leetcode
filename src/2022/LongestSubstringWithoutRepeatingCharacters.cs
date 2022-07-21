@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Xunit;
 
-namespace LeetCode
+namespace LeetCode._2022
 {
     // [Medium][String] https://leetcode.com/problems/longest-substring-without-repeating-characters/
     public class LongestSubstringWithoutRepeatingCharacters

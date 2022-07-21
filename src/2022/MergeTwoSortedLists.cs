@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Xunit;
 
-namespace LeetCode
+namespace LeetCode._2022
 {
     // [Easy][LinkedList] https://leetcode.com/problems/merge-two-sorted-lists/
     public class MergeTwoSortedLists

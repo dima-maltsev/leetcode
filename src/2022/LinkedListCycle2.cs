@@ -1,26 +1,27 @@
 ﻿using System.Collections.Generic;
 using Xunit;
 
-namespace LeetCode;
+namespace LeetCode._2022;
 
-// [Easy][LinkedList] https://leetcode.com/problems/linked-list-cycle/
-public class LinkedListCycle
+// [Medium][LinkedList] https://leetcode.com/problems/linked-list-cycle-ii/
+public class LinkedListCycle2
 {
-    bool HasCycle(ListNode head)
+    int DetectCycle(ListNode head)
     {
-        if (head == null) return false;
-        
-        var set = new HashSet<ListNode> { head };
+        if (head == null) return -1;
+
+        var index = 0;
+        var set = new Dictionary<ListNode, int> { { head, index } };
 
         while (head.next != null)
         {
-            if (set.Contains(head.next)) 
-                return true;
-            set.Add(head.next);
+            if (set.ContainsKey(head.next))
+                return set[head.next];
+            set.Add(head.next, ++index);
             head = head.next;
         }
 
-        return false;
+        return -1;
     }
 
     // https://leetcode.com/problems/linked-list-cycle/discuss/44489/O(1)-Space-Solution
@@ -42,16 +43,16 @@ public class LinkedListCycle
     }
     
     [Theory]
-    [InlineData(new[] {3, 2, 0, -4}, 1, true)]
-    [InlineData(new[] {1, 2}, 0, true)]
-    [InlineData(new[] {1}, -1, false)]
-    [InlineData(new[] {1}, 0, true)]
-    [InlineData(new int[0], -1, false)]
-    public void Test(int[] array, int pos, bool expected)
+    [InlineData(new[] {3, 2, 0, -4}, 1)]
+    [InlineData(new[] {1, 2}, 0)]
+    [InlineData(new[] {1}, -1)]
+    [InlineData(new[] {1}, 0)]
+    [InlineData(new int[0], -1)]
+    public void Test(int[] array, int pos)
     {
         var list = ArrayToLinkedList(array, pos);
-        var actual = HasCycleConstantSpace(list);
-        Assert.Equal(expected, actual);
+        var actual = DetectCycle(list);
+        Assert.Equal(pos, actual);
     }
 
     class ListNode

@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace LeetCode
+namespace LeetCode._2022
 {
     // [Easy][Array] https://leetcode.com/problems/search-insert-position/
     public class SearchInsertPosition

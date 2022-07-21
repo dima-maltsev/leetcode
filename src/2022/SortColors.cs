@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace LeetCode
+namespace LeetCode._2022
 {
     // [Medium][Sorting] https://leetcode.com/problems/sort-colors/
     public class SortColors

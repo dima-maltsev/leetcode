@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Xunit;
 
-namespace LeetCode
+namespace LeetCode._2022
 {
     // [Medium][Array] https://leetcode.com/problems/daily-temperatures
     public class DailyTemperatures

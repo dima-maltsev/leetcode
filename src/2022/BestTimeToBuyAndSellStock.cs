@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace LeetCode
+namespace LeetCode._2022
 {
     // [Easy][Array] https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
     public class BestTimeToBuyAndSellStock

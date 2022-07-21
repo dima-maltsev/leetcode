@@ -2,7 +2,7 @@
 using System.Linq;
 using Xunit;
 
-namespace LeetCode
+namespace LeetCode._2021
 {
     // https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/549/
     public class SingleNumber

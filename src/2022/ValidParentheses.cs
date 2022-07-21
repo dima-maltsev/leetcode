@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
-namespace LeetCode
+namespace LeetCode._2022
 {
     // [Easy][String] https://leetcode.com/problems/valid-parentheses/
     // Notes:
