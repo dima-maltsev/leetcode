@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
-namespace LeetCode._2022;
+namespace LeetCode.Easy;
 
-// [Easy][Array] https://leetcode.com/problems/majority-element/
+// [Array] https://leetcode.com/problems/majority-element/
 public class MajorityElement
 {
     int HashMap(int[] nums)
@@ -20,7 +20,7 @@ public class MajorityElement
         {
             if (!map.ContainsKey(num))
                 map.Add(num, 0);
-            
+
             if (++map[num] == threshold)
                 return num;
         }
@@ -43,9 +43,8 @@ public class MajorityElement
 
         var num = nums[0];
         var max = 1;
-        
+
         for (var i = 1; i < nums.Length; i++)
-        {
             if (nums[i] == num)
             {
                 max++;
@@ -56,7 +55,6 @@ public class MajorityElement
             {
                 num = nums[i];
             }
-        }
 
         return num;
     }
@@ -74,7 +72,6 @@ public class MajorityElement
         var count = 1;
 
         for (var i = 1; i < nums.Length; i++)
-        {
             if (count == 0)
             {
                 count++;
@@ -88,7 +85,6 @@ public class MajorityElement
             {
                 count--;
             }
-        }
 
         return major;
     }

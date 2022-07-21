@@ -2,23 +2,19 @@
 using System.Collections.Generic;
 using Xunit;
 
-namespace LeetCode._2022;
+namespace LeetCode.Easy;
 
-// [Easy][Array] https://leetcode.com/problems/two-sum/
+// [Array] https://leetcode.com/problems/two-sum/
 public class TwoSumSolved
 {
     int[] BruteForce(int[] nums, int target)
     {
         if (nums.Length == 2) return new[] { 0, 1 };
-        
+
         for (var i = 0; i < nums.Length - 1; i++)
-        {
-            for (var j = 1; j < nums.Length; j++)
-            {
-                if (nums[i] + nums[j] == target)
-                    return new[] { i, j };
-            }
-        }
+        for (var j = 1; j < nums.Length; j++)
+            if (nums[i] + nums[j] == target)
+                return new[] { i, j };
 
         throw new InvalidOperationException("Solution not found");
     }
@@ -28,12 +24,12 @@ public class TwoSumSolved
         if (nums.Length == 2) return new[] { 0, 1 };
 
         var map = new Dictionary<int, int>();
-        
+
         for (var i = 0; i < nums.Length; i++)
         {
             if (map.ContainsKey(nums[i]))
                 return new[] { map[nums[i]], i };
-            
+
             map[target - nums[i]] = i;
         }
 

@@ -2,9 +2,9 @@
 using System.Linq;
 using Xunit;
 
-namespace LeetCode._2022;
+namespace LeetCode.Easy;
 
-// [Easy][Array] https://leetcode.com/problems/single-number/
+// [Array] https://leetcode.com/problems/single-number/
 public class SingleNumberSolved
 {
     int Solution(int[] nums)

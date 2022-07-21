@@ -3,9 +3,9 @@ using System.Linq;
 using System.Text;
 using Xunit;
 
-namespace LeetCode._2022;
+namespace LeetCode.Medium;
 
-// [Medium][String] https://leetcode.com/problems/decode-string/
+// [String] https://leetcode.com/problems/decode-string/
 public class DecodeString
 {
     string Decode(string s)
@@ -13,15 +13,14 @@ public class DecodeString
         var stack = new Stack<string>();
 
         var i = 0;
-        
+
         while (i < s.Length)
-        {
             if (char.IsDigit(s[i]))
             {
                 var number = "";
                 while (char.IsDigit(s[i]))
                     number += s[i++];
-                
+
                 stack.Push(number);
             }
             else if (s[i] == '[')
@@ -34,14 +33,14 @@ public class DecodeString
                 var subStr = stack.Pop();
                 while (stack.Peek() != "[")
                     subStr = stack.Pop() + subStr;
-                
+
                 stack.Pop();
                 var number = int.Parse(stack.Pop());
 
                 var line = subStr;
                 for (var k = 0; k < number - 1; k++)
                     line += subStr;
-                
+
                 stack.Push(line);
 
                 i++;
@@ -51,10 +50,9 @@ public class DecodeString
                 var encoded = "";
                 while (i < s.Length && char.IsLetter(s[i]))
                     encoded += s[i++];
-                
+
                 stack.Push(encoded);
             }
-        }
 
         var result = "";
 
@@ -69,9 +67,8 @@ public class DecodeString
         var stack = new Stack<string>();
         var currStr = "";
         var currNum = "";
-        
+
         foreach (var c in s)
-        {
             switch (c)
             {
                 case '[':
@@ -90,18 +87,13 @@ public class DecodeString
                 default:
                 {
                     if (char.IsDigit(c))
-                    {
                         currNum += c;
-                    }
                     else
-                    {
                         currStr += c;
-                    }
 
                     break;
                 }
             }
-        }
 
         return currStr;
     }
@@ -117,7 +109,6 @@ public class DecodeString
         var builder = new StringBuilder();
 
         while (i < s.Length && s[i] != ']')
-        {
             if (char.IsDigit(s[i]))
             {
                 var num = 0;
@@ -135,11 +126,10 @@ public class DecodeString
             {
                 builder.Append(s[i++]);
             }
-        }
 
         return builder.ToString();
     }
-    
+
     [Theory]
     [InlineData("3[a]2[bc]", "aaabcbc")]
     [InlineData("3[a2[c]]", "accaccacc")]
