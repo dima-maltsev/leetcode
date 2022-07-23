@@ -47,6 +47,8 @@ public class IntegerToRoman
         return thousands[num / 1000] + hundreds[num % 1000 / 100] + tens[num % 100 / 10] + ones[num % 10];
     }
 
+    // Time complexity: O(1)
+    // Space complexity: O(1)
     string Generalization(int num)
     {
         var literals = new[] { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
