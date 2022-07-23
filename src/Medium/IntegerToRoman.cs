@@ -47,6 +47,29 @@ public class IntegerToRoman
         return thousands[num / 1000] + hundreds[num % 1000 / 100] + tens[num % 100 / 10] + ones[num % 10];
     }
 
+    string Generalization(int num)
+    {
+        var literals = new[] { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
+        var values = new[] { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
+
+        var result = "";
+
+        var i = 0;
+        
+        while (num > 0)
+        {
+            while (num >= values[i])
+            {
+                num -= values[i];
+                result += literals[i];
+            }
+
+            i++;
+        }
+
+        return result;
+    }
+
     [Theory]
     [InlineData(1, "I")]
     [InlineData(3, "III")]
@@ -56,7 +79,7 @@ public class IntegerToRoman
     [InlineData(1994, "MCMXCIV")]
     void Test(int num, string expected)
     {
-        var actual = OneLiner(num);
+        var actual = Generalization(num);
         Assert.Equal(expected, actual);
     }
 }
