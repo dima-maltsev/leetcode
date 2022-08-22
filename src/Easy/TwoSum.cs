@@ -5,7 +5,7 @@ using Xunit;
 namespace LeetCode.Easy;
 
 // [Array] https://leetcode.com/problems/two-sum/
-public class TwoSumSolved
+public class TwoSum
 {
     int[] BruteForce(int[] nums, int target)
     {
