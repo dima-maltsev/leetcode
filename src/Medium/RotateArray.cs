@@ -1,5 +1,4 @@
-﻿using System;
-using Xunit;
+﻿using Xunit;
 
 namespace LeetCode.Medium;
 
@@ -16,8 +15,9 @@ public class RotateArray
         
         var index = 0;
         var memo = nums[0];
+        var start = 0;
 
-        for (var moves = 0; moves <= n; moves++)
+        for (var moves = 0; moves < n; moves++)
         {
             var next = (index + k) % n;
             
@@ -25,9 +25,10 @@ public class RotateArray
 
             index = next;
 
-            if (k > 1 && n % k == 0 && moves == n / k)
+            if (index == start)
             {
-                index++;
+                start++;
+                index = start;
                 memo = nums[index];
             }
         }
@@ -87,7 +88,7 @@ public class RotateArray
     [InlineData(new[] { 1, 2, 3, 4, 5, 6 }, 3, new[] { 4, 5, 6, 1, 2, 3 })]
     public void Test(int[] nums, int k, int[] expected)
     {
-        Reversal(nums, k);
+        InPlace(nums, k);
         Assert.Equal(expected, nums);
     }
 }
