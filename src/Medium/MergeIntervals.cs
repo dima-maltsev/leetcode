@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using LeetCode.DataTypes;
 using Xunit;
 
 namespace LeetCode.Medium;
@@ -83,12 +84,7 @@ public class MergeIntervals
     [InlineData(new[] { 2, 3, 4, 5, 6, 7, 8, 9, 1, 10 }, new[] { 1, 10 })]
     public void Test(int[] intervals, int[] expected)
     {
-        var actual = Simplified(ToJagged(intervals));
-        Assert.Equal(ToJagged(expected), actual);
-    }
-
-    int[][] ToJagged(int[] input, int chunkSize = 2)
-    {
-        return input.Chunk(chunkSize).ToArray();
+        var actual = Simplified(intervals.ToJagged(2));
+        Assert.Equal(expected.ToJagged(2), actual);
     }
 }
